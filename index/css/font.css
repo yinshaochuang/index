@@ -11,3 +11,11 @@
     font-family: "iconfont";
     content: "\e62d";
 }
+.glyphicon-chevron-left:before{
+    font-family: "iconfont";
+    content: "\e6ae";
+}
+.glyphicon-chevron-right:before{
+    font-family: "iconfont";
+    content: "\e6cc";
+}

@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata>
-Created by FontForge 20120731 at Sun Dec 18 16:22:42 2016
+Created by FontForge 20120731 at Tue Dec 27 13:29:25 2016
  By admin
 </metadata>
 <defs>
@@ -505,6 +505,10 @@ q49 -49 112.5 -75t130.5 -26q123 0 221 83l214 -215z" />
     <glyph glyph-name="pinglun6" unicode="&#xe724;" 
 d="M362 75q91 95 103.5 106t30.5 11h375q15 0 25 10.5t10 24.5v479q0 14 -10 24.5t-25 10.5h-716q-15 0 -25.5 -10.5t-10.5 -24.5v-479q0 -14 10.5 -24.5t25.5 -10.5h153q13 0 21.5 -7t17 -33.5t15.5 -76.5zM330 -28q-19 165 -33 165h-167q-27 0 -46.5 19t-19.5 47v528
 q0 28 19.5 47t46.5 19h765q27 0 46.5 -19t19.5 -47v-528q0 -28 -19.5 -47t-46.5 -19h-389q-16 0 -176 -165v0v0v0v0zM330 -28z" />
+    <glyph glyph-name="jiantou-copy" unicode="&#xe6ae;" 
+d="M807 818l-78 78l-512 -512l512 -512l78 78l-434 434z" />
+    <glyph glyph-name="jiantou" unicode="&#xe6cc;" 
+d="M326 860q24 0 41 -17l428 -428q17 -17 17 -41t-17 -41l-428 -428q-17 -17 -41 -17t-41 17t-17 41.5t17 41.5l386 386l-386 387q-17 17 -17 41t17 41t41 17v0v0zM326 860z" />
     <glyph glyph-name="sousuokuangsousuo" unicode="&#xe62c;" 
 d="M962 -14l-229 235q34 42 55 92q30 70 30 146.5t-30 146.5q-29 68 -81 120t-119 81q-70 29 -147 29t-147 -29q-67 -29 -119 -81t-81 -120q-30 -70 -30 -146.5t30 -146.5q29 -67 81 -119.5t119 -80.5q70 -30 147 -30t147 30q47 20 87 52l229 -235zM752 460
 q0 -129 -91 -220.5t-220 -91.5t-220 91.5t-91 220.5t91 220t220 91t220 -91t91 -220z" />
