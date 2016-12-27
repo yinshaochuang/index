@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="full-screen" content="yes">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="x5-orientation" content="portrait | landscape" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/jquery.fullpage.css">
+    <script src="js/jquery1.js"></script>
+    <script src="js/swiper-3.4.0.jquery.min.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js"></script>
+    <script src="js/touch.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;padding: 0;
+        list-style: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-appearance: none;
+        -webkit-text-size-adjust:100%;
+        -webkit-user-select:none;
+    }
+    p{
+        max-height:9999999px
+    }
+    a{
+        text-decoration: none;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    /*svg图标*/
+    @font-face {
+        font-family: 'iconfont';  /* project id 194599 */
+        src: url('iconfont.eot');
+        src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+        url('iconfont.woff') format('woff'),
+        url('iconfont.ttf') format('truetype'),
+        url('iconfont.svg#iconfont') format('svg');
+    }
+    .xunhuan{
+        font-family: "iconfont";
+    }
+    .xunhuan:after{
+        content: '\e69d';
+    }
+    .xiazai{
+        font-family: "iconfont";
+    }
+    .xiazai:after{
+        content: '\e68e';
+    }
+    .fenxiang{
+        font-family: "iconfont";
+    }
+    .fenxiang:after{
+        content: "\e688";
+    }
+    .xihuan{
+        font-family: "iconfont";
+    }
+    .xihuan:after{
+        content: '\e68f';
+    }
+    .xys{
+        font-family: "iconfont";
+    }
+    .xys:after{
+        content: "\e62a";
+    }
+    .sys{
+        font-family: "iconfont";
+    }
+    .sys:after{
+        content: "\e950";
+    }
+    .bofang{
+        font-family: "iconfont";
+    }
+    .bofang:after{
+        content: "\e6bb";
+    }
+    .wg{
+        font-family: "iconfont";
+    }
+    .wg:before{
+        content: "\e662";
+    }
+    .lb{
+        font-family: "iconfont";
+    }
+    .lb:before{
+        content: "\e67e";
+    }
+    .photo1{
+        font-family: "iconfont";
+    }
+    .photo1:before{
+        content: "\e609";
+    }
+    .tj{
+        font-family: "iconfont";
+    }
+    .tj:before{
+        content: "\e613";
+    }
+    .lbxs{
+        font-family: "iconfont";
+    }
+    .lbxs:before{
+        content: "\e603";
+    }
+    .liebiao{
+        font-family: "iconfont";
+    }
+    .liebiao:before{
+        content: '\e637';
+    }
+    .user{
+        font-family: "iconfont";
+    }
+    .user:before{
+        content: "\e631";
+    }
+    .sear{
+        font-family: "iconfont";
+    }
+    .sear:before{
+        content: "\e61e";
+    }
+    .backing{
+        font-family: "iconfont";
+    }
+    .backing:after{
+        content: "\e605";
+    }
+    .zhuye{
+        font-family: "iconfont";
+    }
+    .zhuye:after{
+        content: "\e614";
+    }
+    .shoucang{
+        font-family: "iconfont";
+    }
+    .shoucang:after{
+        content: "\e612";
+    }
+    .pinlun{
+        font-family: "iconfont";
+    }
+    .pinlun:after{
+        content: "\e668";
+    }
+    .more{
+        font-family: "iconfont";
+    }
+    .ged{
+        font-family: "iconfont";
+    }
+    .ged:after{
+        content: "\e635";
+    }
+    .more:after{
+        content: "\e685";
+    }
+
+    .header{
+        width: 100%;
+        height:0.9rem;
+        display: flex;
+        font-size: 0.7rem;
+        justify-content: space-around;
+    }
+    .headerl{
+        width: 10%;
+    }
+    .headerm{
+        width: 70%;
+    }
+    .headerr{
+        width:20%;
+        text-align: right;
+        box-sizing: border-box;
+        padding-right: 0.2rem;
+    }
+    .headerm h2{
+          font-size: 0.4rem;
+        padding-top: 0.1rem;
+      }
+    .headerm p{
+        font-size: 0.2rem;
+    }
+    .headerr span{
+        font-size: 0.4rem;
+    }
+
+
+    .bannerbox{
+        width: 100%;
+        height: 9rem;
+        background: red;
+    }
+    .svgbox{
+        width: 100%;
+        height: 1rem;
+        display: flex;
+        box-sizing: border-box;
+        padding: 0 1rem;
+        font-size: 0.5rem;
+        justify-content: space-between;
+        line-height: 0.9rem;
+    }
+
+    .probox{
+        width: 100%;
+        height: 0.9rem;
+        display: flex;
+        font-size: 0.2rem;
+        line-height:0.9rem ;
+    }
+    .proboxl{
+        width: 10%;
+    }
+    .proboxm{
+        width: 80%;
+        height: 0.1rem;
+        background: #000;
+        margin-top: 0.4rem;
+    }
+    .proboxr{
+        width: 10%;
+    }
+    .qiu{
+        width: 0.3rem;
+        height:0.3rem;
+        border-radius: 50%;
+        background: #ccc;
+        margin-top: -0.1rem;
+    }
+
+
+
+    .foot{
+        width: 100%;
+        height:1.5rem;
+        display: flex;
+        font-size: 0.5rem;
+        justify-content: space-around;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        line-height: 1.5rem;
+    }
+    .footl{
+        width: 20%;
+        text-align: center;
+    }
+    .footm{
+        width: 60%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .footm span:nth-child(2){
+        font-size: 0.9rem;
+    }
+    .footr{
+        width: 20%;
+        text-align: center;
+    }
+
+</style>
+<script>
+    function resize(originSize,type){
+        var type = type||"x";
+        var cw = document.documentElement.clientWidth;
+        var ch = document.documentElement.clientHeight;
+        if(type == "x"){
+            var scale = cw/originSize*100+"px";
+        }else if(type == "y"){
+            var scale = ch/originSize*100+"px";
+        }
+        document.getElementsByTagName("html")[0].style.fontSize = scale;
+    }
+    $(function(){
+        resize(1334,"y")
+    })
+</script>
+<body>
+<div class="header">
+    <div class="headerl">
+        <a href="index.html" class="backing"></a>
+    </div>
+    <div class="headerm">
+        <h2>爱久见人心</h2>
+        <p>梁静茹</p>
+    </div>
+    <div class="headerr">
+        <span class="fenxiang"></span>
+    </div>
+
+</div>
+<div class="inner">
+    <div class="bannerbox">
+        <img src="" alt="">
+    </div>
+    <div class="svgbox">
+        <span class="xihuan"></span>
+        <span class="xiazai"></span>
+        <span class="pinlun"></span>
+        <span class="more"></span>
+    </div>
+    <div class="probox">
+        <div class="proboxl">
+            <span>00:00</span>
+        </div>
+        <div class="proboxm">
+           <span class="xian"></span>
+            <div class="qiu"></div>
+        </div>
+        <div class="proboxr">
+            <span>04:26</span>
+        </div>
+    </div>
+</div>
+<div class="foot">
+    <div class="footl">
+        <span class="xunhuan"></span>
+    </div>
+    <div class="footm">
+       <span class="sys"></span>
+       <span class="bofang"></span>
+       <span class="xys"></span>
+    </div>
+    <div class="footr">
+        <span class="liebiao"></span>
+    </div>
+</div>
+</body>
+</html>

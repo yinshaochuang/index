@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="full-screen" content="yes">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="x5-orientation" content="portrait | landscape" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/jquery.fullpage.css">
+    <script src="js/jquery1.js"></script>
+    <script src="js/swiper-3.4.0.jquery.min.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js"></script>
+    <script src="js/touch.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;padding: 0;
+        list-style: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-appearance: none;
+        -webkit-text-size-adjust:100%;
+        -webkit-user-select:none;
+    }
+    p{
+        max-height:9999999px
+    }
+    a{
+        text-decoration: none;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    /*svg图标*/
+    @font-face {
+        font-family: 'iconfont';  /* project id 194599 */
+        src: url('iconfont.eot');
+        src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+        url('iconfont.woff') format('woff'),
+        url('iconfont.ttf') format('truetype'),
+        url('iconfont.svg#iconfont') format('svg');
+    }
+    .xiazai{
+        font-family: "iconfont";
+    }
+    .xiazai:after{
+        content: '\e68e';
+    }
+    .fenxiang{
+        font-family: "iconfont";
+    }
+    .fenxiang:after{
+        content: "\e688";
+    }
+    .xys{
+        font-family: "iconfont";
+    }
+    .xys:after{
+        content: "\e62a";
+    }
+    .sys{
+        font-family: "iconfont";
+    }
+    .sys:after{
+        content: "\e950";
+    }
+    .bofang{
+        font-family: "iconfont";
+    }
+    .bofang:after{
+        content: "\e6bb";
+    }
+    .wg{
+        font-family: "iconfont";
+    }
+    .wg:before{
+        content: "\e662";
+    }
+    .lb{
+        font-family: "iconfont";
+    }
+    .lb:before{
+        content: "\e67e";
+    }
+    .photo1{
+        font-family: "iconfont";
+    }
+    .photo1:before{
+        content: "\e609";
+    }
+    .tj{
+        font-family: "iconfont";
+    }
+    .tj:before{
+        content: "\e613";
+    }
+    .lbxs{
+        font-family: "iconfont";
+    }
+    .lbxs:before{
+        content: "\e603";
+    }
+    .liebiao{
+        font-family: "iconfont";
+    }
+    .liebiao:before{
+        content: '\e637';
+    }
+    .user{
+        font-family: "iconfont";
+    }
+    .user:before{
+        content: "\e631";
+    }
+    .sear{
+        font-family: "iconfont";
+    }
+    .sear:before{
+        content: "\e61e";
+    }
+    .backing{
+        font-family: "iconfont";
+    }
+    .backing:after{
+        content: "\e605";
+    }
+    .zhuye{
+        font-family: "iconfont";
+    }
+    .zhuye:after{
+        content: "\e614";
+    }
+    .shoucang{
+        font-family: "iconfont";
+    }
+    .shoucang:after{
+        content: "\e612";
+    }
+    .pinlun{
+        font-family: "iconfont";
+    }
+    .pinlun:after{
+        content: "\e668";
+    }
+    .more{
+        font-family: "iconfont";
+    }
+    .ged{
+        font-family: "iconfont";
+    }
+    .ged:after{
+        content: "\e635";
+    }
+    .more:after{
+        content: "\e685";
+    }
+
+    .header{
+        width: 100%;
+        height:0.9rem;
+        display: flex;
+        font-size: 0.7rem;
+        background: #000;
+        color: #fff;
+        justify-content: space-around;
+        position: fixed;
+        top:0;
+        z-index: 2;
+    }
+    .headerl{
+        width: 10%;
+    }
+    .headerm{
+        width: 70%;
+    }
+    .headerr{
+        width:20%;
+        text-align: center;
+    }
+    .headerm h2{
+        font-size: 0.4rem;
+        padding-top: 0.1rem;
+    }
+    .headerm p{
+        font-size: 0.2rem;
+    }
+    .header a{
+        color: #fff;
+    }
+
+
+
+    .bannerbox{
+        width: 100%;
+        height: 4.5rem;
+        background: #000;
+        position: relative;
+        padding-top: 1.2rem;
+    }
+    .svgbox{
+        width: 100%;
+        height: 1rem;
+        display: flex;
+        box-sizing: border-box;
+        padding: 0 1rem;
+        font-size: 0.4rem;
+        justify-content: space-between;
+        line-height: 0.9rem;
+        position: absolute;
+        bottom: 0;
+        color: #fff;
+    }
+
+    .bannerboxt{
+        width: 100%;
+        /*height: 3rem;*/
+        display: flex;
+        box-sizing: border-box;
+        padding: 0 0.2rem;
+        color: #fff;
+    }
+    .bannerimg{
+        width: 40%;
+        height: 3rem;
+        background: #fff;
+    }
+
+    .bannerword{
+        width: 60%;
+        height:3rem;
+        box-sizing: border-box;
+        padding-left: 0.2rem;
+    }
+    .bannerword h2{
+        font-size: 0.4rem;
+        margin-top: 0.5rem;
+    }
+
+    .bannerword span{
+        font-size: 0.3rem;
+        color: #fff;
+    }
+    .bannerwordb{
+        width: 100%;
+        height:1rem;
+        margin-top: 0.5rem;
+    }
+    .bannerwordbl{
+        width: 1rem;
+        height: 100%;
+        border-radius: 50%;
+        background: #fff;
+        float: left;
+    }
+    .bannerwordbr{
+        float: left;
+        line-height: 1rem;
+    }
+
+    .list{
+        width: 100%;
+        height:0.9rem;
+        display: flex;
+    }
+    .listl{
+        width: 10%;
+        height:100%;
+        text-align: center;
+        font-size: 0.3rem;
+        line-height: 0.9rem;
+    }
+    .listm{
+        width: 80%;
+        height:100%;
+        font-size: 0.3rem;
+        box-sizing: border-box;
+        padding-top: 0.1rem;
+    }
+    .listm span{
+        color: #ccc;
+    }
+    .listm p{
+        font-size: 0.2rem;
+        color: #ccc;
+    }
+    .listr{
+        width: 10%;
+        height: 0.9rem;
+    }
+
+
+
+    .foot{
+        width: 100%;
+        height: 0.9rem;
+        background: #1C88F7;;
+        position: fixed;
+        bottom:0;
+        display: flex;
+        border-top: 1px solid #ccc;
+        justify-content: space-between;
+        text-align: center;
+        z-index: 2;
+    }
+    .footinner{
+        display: flex;
+        width: 95%;
+        height:100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 0.1rem 0;
+    }
+    .footl{
+        width: 50%;
+        height: 100%;
+        display: flex;
+    }
+    .footll{
+        width: 0.7rem;
+        height:0.7rem;
+        border-radius: 50%;
+        border: 2px solid #fff;
+    }
+    .footlr{
+        width: 80%;
+        height:100%;
+        text-align: left;
+        box-sizing: border-box;
+        padding-left: 0.2rem;
+    }
+    .footlr h4{
+        font-size: 0.3rem;
+        color: #fff;
+        line-height: 0.4rem;
+    }
+    .footlr p{
+        font-size: 0.2rem;
+        color: #fff;
+        line-height: 0.4rem;
+    }
+    .footr{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .footr span{
+        font-size: 0.5rem;
+        color: #fff;
+        padding: 0 0.2rem;
+    }
+    .footr span:nth-child(1){
+        margin-top:0.06rem ;
+    }
+    .footr span:nth-child(3){
+        margin-top:0.06rem ;
+    }
+    .footr span:nth-child(2){
+        font-size: 0.6rem;
+    }
+
+</style>
+<script>
+    function resize(originSize,type){
+        var type = type||"x";
+        var cw = document.documentElement.clientWidth;
+        var ch = document.documentElement.clientHeight;
+        if(type == "x"){
+            var scale = cw/originSize*100+"px";
+        }else if(type == "y"){
+            var scale = ch/originSize*100+"px";
+        }
+        document.getElementsByTagName("html")[0].style.fontSize = scale;
+    }
+    $(function(){
+        resize(1334,"y")
+    })
+</script>
+<body>
+<div class="header">
+    <div class="headerl">
+        <a href="index.html" class="backing"></a>
+    </div>
+    <div class="headerm">
+        <h2>歌单</h2>
+        <p>编辑推荐：旧时的回忆依旧，只是多了一些沧桑</p>
+    </div>
+    <div class="headerr">
+        <a href="sousuo.html" class="sear"></a>
+    </div>
+
+</div>
+<div class="inner">
+    <div class="bannerbox">
+        <div class="bannerboxt">
+            <div class="bannerimg">
+
+            </div>
+            <div class="bannerword">
+                <h2>旧时回忆，念旧的人获得总像个拾荒者</h2>
+                <div class="bannerwordb">
+                    <a href="">
+                        <div class="bannerwordbl"></div>
+                        <div class="bannerwordbr">
+                            <span class="ged">薛定谔的缝纫机</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="svgbox">
+            <span class="shoucang"></span>
+            <span class="pinlun"></span>
+            <span class="fenxiang"></span>
+            <span class="xiazai"></span>
+        </div>
+    </div>
+
+    <div class="list">
+        <div class="listl"><span>1</span></div>
+        <div class="listm">
+            倩女幽魂<span>(电影《倩女幽魂》主题曲)</span>
+            <p>张国荣-Ultimate</p>
+        </div>
+        <div class="listr"></div>
+    </div>
+    <div class="list">
+        <div class="listl"><span>2</span></div>
+        <div class="listm">
+            倩女幽魂<span>(电影《倩女幽魂》主题曲)</span>
+            <p>张国荣-Ultimate</p>
+        </div>
+        <div class="listr"></div>
+    </div>
+    <div class="list">
+        <div class="listl"><span>3</span></div>
+        <div class="listm">
+            倩女幽魂<span>(电影《倩女幽魂》主题曲)</span>
+            <p>张国荣-Ultimate</p>
+        </div>
+        <div class="listr"></div>
+    </div>
+    <div class="list">
+        <div class="listl"><span>4</span></div>
+        <div class="listm">
+            倩女幽魂<span>(电影《倩女幽魂》主题曲)</span>
+            <p>张国荣-Ultimate</p>
+        </div>
+        <div class="listr"></div>
+    </div>
+    <div class="list">
+        <div class="listl"><span>5</span></div>
+        <div class="listm">
+            倩女幽魂<span>(电影《倩女幽魂》主题曲)</span>
+            <p>张国荣-Ultimate</p>
+        </div>
+        <div class="listr"></div>
+    </div>
+    <div class="list">
+        <div class="listl"><span>6</span></div>
+        <div class="listm">
+            倩女幽魂<span>(电影《倩女幽魂》主题曲)</span>
+            <p>张国荣-Ultimate</p>
+        </div>
+        <div class="listr"></div>
+    </div>
+    <div class="list">
+        <div class="listl"><span>7</span></div>
+        <div class="listm">
+            倩女幽魂<span>(电影《倩女幽魂》主题曲)</span>
+            <p>张国荣-Ultimate</p>
+        </div>
+        <div class="listr"></div>
+    </div>
+    <div class="list">
+        <div class="listl"><span>8</span></div>
+        <div class="listm">
+            倩女幽魂<span>(电影《倩女幽魂》主题曲)</span>
+            <p>张国荣-Ultimate</p>
+        </div>
+        <div class="listr"></div>
+    </div>
+    <div class="list">
+        <div class="listl"><span>9</span></div>
+        <div class="listm">
+            倩女幽魂<span>(电影《倩女幽魂》主题曲)</span>
+            <p>张国荣-Ultimate</p>
+        </div>
+        <div class="listr"></div>
+    </div>
+
+</div>
+
+
+<div class="foot">
+    <a class="footinner" href="bofang.html">
+        <div class="footl">
+            <div class="footll"></div>
+            <div class="footlr">
+                <h4>爱久见人心</h4>
+                <p>梁静茹</p>
+            </div>
+        </div>
+        <div class="footr">
+            <span class="xys"></span>
+            <span class="bofang"></span>
+            <span class="sys"></span>
+        </div>
+    </a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+body,html{
+    margin:0;
+    padding:0;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+}
+.scene{
+    width:100%;height:100%;position:absolute;left:0;top:0;
+    perspective:400px;
+}
+.scene .room{
+    width:100%;height:100%;position:absolute;left:0;top:0;
+    transform-style:preserve-3d;
+    translate3d(0,0,-370px);
+}
+.scene .room .panel{
+    width:100%;height:100%;position:absolute;left:0;top:0;
+    backface-visibility:visible;
+    transform-style:preserve-3d;
+}
+.scene .room .panel:nth-child(1){  /*上面 往外翻  正的*/
+    transform-origin:top;
+    transform:rotateX(90deg);
+    background:url(../img/ceil1.jpg);
+    background-size: 200px 200px;
+    box-shadow: 0 0 200px inset;
+}
+.scene .room  .panel:nth-child(2){/*左面*/
+    transform-origin:left;
+    transform:rotateY(-90deg);
+    background:url(../img/qiangzhi2.jpg);
+    background-size: 200px 200px;
+    box-shadow: 0 0 200px inset
+}
+.scene .room  .panel:nth-child(3){ /*后面*/
+    background:url(../img/window4.jpg) no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 200px inset
+}
+.scene .room  .panel:nth-child(4){ /*右面*/
+    transform-origin:right;
+    transform:rotateY(90deg);
+    background:url(../img/qiangzhi2.jpg);
+    background-size: 200px 200px;
+    box-shadow: 0 0 200px inset
+}
+.scene .room .panel:nth-child(5){/*底*/
+    transform-origin:bottom;
+    transform:rotateX(-90deg);
+    background:url(../img/ceil2.jpg) ;
+    background-size: 200px 200px;
+    box-shadow: 0 0 200px inset;
+}
+.scene .room .panel:nth-child(6){ /*前面*/
+    background:url(../img/window3.jpg) no-repeat;
+    background-size:cover;
+}
+.left .iconfont{
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 230px 100px;
+    box-shadow: 0 0 5px #aaa;
+    border-radius: 5px;
+    font-size: 100px;
+    text-align: center;
+    line-height: 100px;
+    transform:rotate3d(0,1,0,180deg);
+    text-shadow:0 0 3px #6499FF;
+}
+.right .iconfont{
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 230px 100px;
+    box-shadow: 0 0 5px #aaa;
+    border-radius: 5px;
+    font-size: 100px;
+    text-align: center;
+    line-height: 100px;
+    transform:rotate3d(0,1,0,180deg);
+    text-shadow:0 0 3px #6499FF;
+}
+

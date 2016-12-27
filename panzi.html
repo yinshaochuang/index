@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: repeating-radial-gradient(red 0,blue 10%,yellow 20%,blue 40%,orange 60%,green 80%,pink 100%);
+            position: fixed;
+            left: 0;top: 0;right: 0;bottom: 0;
+            margin: auto;
+            box-shadow: 0px 0px 100px;
+            transition: background 1s ease;
+            animation: one 1s ease infinite paused;
+        }
+        @keyframes one {
+            0%{
+                transform:  rotate(0deg);
+
+            }
+            100%{
+                transform:  rotate(8000deg);
+                background: repeating-radial-gradient(circle 100px,red 0,yellow 10%,orange 20%,hotpink 40%,red 60%,blue 80%,lawngreen 100%);
+                border-radius: 50%;
+            }
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var div=document.getElementsByTagName("div")[0];
+            div.onmouseover=function(){
+                this.style.animation= "one 1s ease infinite running";
+                div.onclick=function(){
+                    this.style.animation= "one 1s ease infinite paused";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

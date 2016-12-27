@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D盒子</title>
+</head>
+<style>
+    .sceen{
+        width: 200px;
+        height:200px;
+        perspective: 800px;
+        margin: 200px;
+        position: fixed;
+        top:0;left: 0;
+        right:0;
+        bottom:0;margin: auto;
+    }
+    .box{
+        width: 200px;height: 200px;
+        /*transition:transform 2s ease ;*/
+        transform-style: preserve-3d;
+        transform-origin: center center -100px;
+
+    }
+    /*.box:hover{*/
+        /*transform: rotateX(360deg);*/
+
+    /*}*/
+    .box div{
+        width: 100%;height: 100%;
+        position: absolute;left: 0;
+        text-align: center;line-height: 200px;
+        font-size: 30px;
+    }
+   .box div:nth-child(1){
+       background: red;
+       transform-origin: top;
+       transform: rotateX(-90deg);
+   }
+    .box div:nth-child(2){
+        background: blue;
+        transform-origin: left;
+        transform: rotateY(90deg);
+    }
+    .box div:nth-child(3){
+        background: orange;
+    }
+    .box div:nth-child(4){
+        background: pink;
+        transform-origin: right;
+        transform: rotateY(-90deg);
+    }
+    .box div:nth-child(5){
+        background: yellow;
+        transform-origin: bottom;
+        transform: rotateX(90deg);
+    }
+    .box div:nth-child(6){
+        background: #ccc;
+        transform: translateZ(-200px);
+    }
+
+</style>
+<script>
+    window.onload=function(){
+        var centerx=document.documentElement.clientWidth/2;
+        var centery=document.documentElement.clientHeight/2;
+        var box=document.getElementsByClassName("box")[0];
+        document.onmousedown=function(e){
+            var cx= e.clientX;
+            var cy= e.clientY;
+
+            document.onmousemove=function(e){
+                var movex= e.clientX;
+                var movey= e.clientY;console.log(movey)
+                var x=movex-centerx;
+                var y=movey-centery;
+                var mo=Math.sqrt(x*x+y*y);
+                var mox=x/mo;
+                var moy=y/mo;
+                var angle=Math.sqrt((movex-cx)*(movex-cx)+(movey-cy)*(movey-cy))/100*180/Math.PI;
+                box.style.transform="rotate3d("+moy+","+-mox+",0,"+angle+"deg)"
+            }
+            document.onmouseup=function(){
+                document.onmousemove=null;
+                document.onmouseup=null;
+            }
+        }
+    }
+</script>
+<body>
+<div class="sceen">
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+</div>
+</body>
+</html>

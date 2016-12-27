@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/hit.js"></script>
+    <style>
+        canvas{
+            background:#ccc;
+        }
+    </style>
+</head>
+<script>
+    window.onload=function(){
+        var canvas=document.querySelector("canvas");
+        var cobj=canvas.getContext("2d");
+
+        function obj(){
+            this.x=0;
+            this.y=0;
+            this.speedx=2;
+            this.width=90;
+            this.height=90;
+        }
+
+        obj.prototype={
+            draw:function(){
+                cobj.save();
+                cobj.translate(this.x,this.y);
+                cobj.beginPath();
+                cobj.moveTo(0,100);
+                cobj.quadraticCurveTo(100,50,200,100);
+                cobj.fill();
+                cobj.closePath();
+                cobj.restore();
+            },
+            update:function(){
+                this.x+=this.speedx;
+            }
+        }
+        var obj1=new obj();
+        var obj2=new obj();
+            obj2.x=400;
+            obj2.speedx=-2;
+
+        setInterval(function(){
+            cobj.clearRect(0,0,600,600);
+
+            obj1.update();
+            obj1.draw();
+
+            obj2.update();
+            obj2.draw();
+
+            if(hit(canvas,cobj,obj1,obj2)){
+                console.log(1);
+            }
+        },50)
+    }
+</script>
+<body>
+<canvas width="600" height="600"></canvas>
+</body>
+</html>

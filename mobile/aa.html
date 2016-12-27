@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery1.js"></script>
+    <script src="js/iscroll.js"></script>
+
+</head>
+<script>
+    $(function(){
+
+        var box=document.querySelector("ul");
+        var starty;
+          $("ul")[0].addEventListener("touchstart", function (e) {
+               starty= e.touches[0].pageY;
+              $("ul")[0].addEventListener("touchmove",move)
+              $("ul")[0].addEventListener("touchend",function(){
+                  $("ul")[0].removeEventListener("touchmove",move)
+              })
+          })
+        function move(e){
+            var movey= e.touches[0].pageY;
+            if(movey>starty){
+                console.log($("#wrapper")[0].offsetTop+movey-starty)
+                $(".update").css({
+                    display:"block"
+                })
+               $("#wrapper")[0].style.top= $("#wrapper")[0].offsetTop+movey-starty+"px"
+            }else{
+                console.log("xia")
+                $(".downdate").css({
+                    display:"block"
+                })
+                $("#wrapper")[0].style.top= $("#wrapper")[0].offsetTop+movey-starty+"px"
+            }
+        }
+
+    })
+</script>
+<style>
+    html,body{
+        width: 100%;
+        height:100%;
+        overflow: hidden;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    #header{
+        width: 100%;
+        height: 44px;
+        background: #ccc;
+        position: absolute;
+        top:0;
+        left:0;
+        text-align: center;
+        line-height: 44px;
+    }
+    #footer{
+        width: 100%;
+        height:44px;
+        background: #ccc;
+        position: absolute;
+        bottom:0;
+        left:0;
+        text-align: center;
+        line-height: 44px;
+    }
+    #wrapper{
+        width: 100%;
+        position: absolute;
+        top:44px;
+        bottom:44px;
+        height:auto;
+        overflow: hidden;
+    }
+    li{
+        height: 100px;
+        width: 100%;
+        font-size: 100px;
+        line-height: 100px;
+        background: #FFDA28;
+    }
+
+    .update{
+        height: 100px;
+        width: 100%;
+        font-size: 100px;
+        line-height: 100px;
+        background: #ccc;
+        position: absolute;
+        display: none;
+
+    }
+    .downdate{
+        height: 100px;
+        width: 100%;
+        font-size: 100px;
+        line-height: 100px;
+        background: #ccc;
+        position: absolute;
+        bottom:0px;
+        display: none;
+    }
+</style>
+<body>
+<div id="header">
+    新闻
+</div>
+<div id="wrapper">
+    <div class="update">
+        正在加载....
+    </div>
+    <ul>
+        <li>0001</li>
+        <li>0002</li>
+        <li>0003</li>
+        <li>0004</li>
+        <li>0005</li>
+        <li>0006</li>
+        <li>0007</li>
+        <li>0008</li>
+        <li>0009</li>
+        <li>0010</li>
+        <li>0011</li>
+        <li>0012</li>
+        <li>0013</li>
+        <li>0014</li>
+        <li>0015</li>
+        <li>0016</li>
+        <li>0017</li>
+        <li>0018</li>
+        <li>0019</li>
+        <li>0020</li>
+        <li>0021</li>
+        <li>0022</li>
+        <li>0023</li>
+        <li>0024</li>
+        <li>0025</li>
+        <li>0026</li>
+        <li>0027</li>
+        <li>0028</li>
+        <li>0029</li>
+        <li>0030</li>
+        <li>0031</li>
+        <li>0032</li>
+        <li>0033</li>
+        <li>0034</li>
+        <li>0035</li>
+        <li>0036</li>
+        <li>0037</li>
+        <li>0038</li>
+        <li>0039</li>
+        <li>0040</li>
+        <li>0041</li>
+        <li>0042</li>
+        <li>0043</li>
+        <li>0044</li>
+        <li>0045</li>
+        <li>0046</li>
+        <li>0047</li>
+        <li>0048</li>
+        <li>0049</li>
+        <li>0050</li>
+    </ul>
+    <div class="downdate">
+        正在加载
+    </div>
+</div>
+<div id="footer">
+    啊啊啊啊
+</div>
+</body>
+</html>

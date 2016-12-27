@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <title>Document</title>
+    <link href="css/iSlider.css" rel="stylesheet">
+    <script src="js/iSlider.js"></script>
+    <script src="js/iSlider.animate.min.js"></script>
+</head>
+<script>
+window.onload=function(){
+    var data = [
+        {content: "imgs/1.jpg"},
+        {content: "imgs/2.jpg"},
+        {content: "imgs/3.ipg"}
+    ];
+    var islider = new iSlider({
+        dom: document.getElementById("iSlider-wrapper"),
+        data: list,
+        isVertical: true,
+        isLooping: false,
+        isDebug: true,
+        isAutoplay: false,
+        animateType: 'rotate'
+    });
+}
+</script>
+<body>
+<div id="iSlider-wrapper"></div>
+
+</body>
+</html>

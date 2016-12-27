@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="full-screen" content="yes">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="x5-orientation" content="portrait | landscape" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/jquery.fullpage.css">
+    <script src="js/jquery1.js"></script>
+    <script src="js/swiper-3.4.0.jquery.min.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js"></script>
+    <script src="js/touch.js"></script>
+    <style>
+        *{
+            margin: 0;padding: 0;
+            list-style: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-appearance: none;
+            -webkit-text-size-adjust:100%;
+            -webkit-user-select:none;
+        }
+        p{
+            max-height:9999999px
+        }
+        a{
+            text-decoration: none;
+        }
+        html,body{
+            width: 100%;
+            height:100%;
+        }
+
+        .swiper-container{
+            width: 100%;
+            height:auto;
+            margin-top: 0.9rem;
+        }
+        .swiper-wrapper{
+            width: 100%;
+            height:auto;
+        }
+
+        /*svg图标*/
+        @font-face {
+            font-family: 'iconfont';  /* project id 194599 */
+            src: url('iconfont.eot');
+            src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+            url('iconfont.woff') format('woff'),
+            url('iconfont.ttf') format('truetype'),
+            url('iconfont.svg#iconfont') format('svg');
+        }
+        .zanting{
+            font-family: "iconfont";
+        }
+        .zanting:before{
+            content: "\e697";
+        }
+        .xys{
+            font-family: "iconfont";
+        }
+        .xys:after{
+            content: "\e62a";
+        }
+        .sys{
+            font-family: "iconfont";
+        }
+        .sys:after{
+            content: "\e950";
+        }
+        .bofang{
+            font-family: "iconfont";
+        }
+        .bofang:after{
+            content: "\e6bb";
+        }
+        .wg{
+            font-family: "iconfont";
+        }
+        .wg:before{
+            content: "\e662";
+        }
+        .lb{
+            font-family: "iconfont";
+        }
+        .lb:before{
+            content: "\e67e";
+        }
+        .photo1{
+            font-family: "iconfont";
+        }
+        .photo1:before{
+            content: "\e609";
+        }
+        .tj{
+            font-family: "iconfont";
+        }
+        .tj:before{
+            content: "\e613";
+        }
+        .lbxs{
+            font-family: "iconfont";
+        }
+        .lbxs:before{
+            content: "\e603";
+        }
+        .liebiao{
+            font-family: "iconfont";
+        }
+        .liebiao:before{
+            content: '\e637';
+        }
+        .user{
+            font-family: "iconfont";
+        }
+        .user:before{
+            content: "\e631";
+        }
+        .sear{
+            font-family: "iconfont";
+        }
+        .sear:before{
+            content: "\e61e";
+        }
+        .backing{
+            font-family: "iconfont";
+        }
+        .backing:after{
+            content: "\e605";
+        }
+        .zhuye{
+            font-family: "iconfont";
+        }
+        .zhuye:after{
+            content: "\e614";
+        }
+        .shoucang{
+            font-family: "iconfont";
+        }
+        .shoucang:after{
+            content: "\e612";
+        }
+        .pinlun{
+            font-family: "iconfont";
+        }
+        .pinlun:after{
+            content: "\e668";
+        }
+        .more{
+            font-family: "iconfont";
+        }
+        .ged{
+            font-family: "iconfont";
+        }
+        .ged:after{
+            content: "\e635";
+        }
+        .more:after{
+            content: "\e685";
+        }
+        .header{
+            width: 100%;
+            height:0.9rem;
+            background: #1C88F7;
+            text-align: center;
+            line-height: 0.9rem;
+            color: #fff;
+            font-size: 0.44rem;
+            position: fixed;
+            top:0;
+            z-index: 2;
+
+        }
+
+        .header div:nth-child(1){
+            position: absolute;
+            left:0.2rem;
+            z-index: 1;
+        }
+        .header div:nth-child(3){
+            position: absolute;
+            right:0.2rem;
+            z-index: 1;
+        }
+        .header a{
+            color: #fff;
+        }
+        .header div:nth-child(2){
+            position: absolute;
+            left:0;
+            right:0;
+            margin: 0 auto;
+        }
+        .nav{
+            width: 100%;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            position: fixed;
+            top:0.9rem;
+            z-index: 3;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.33rem;
+            padding:0 0.2rem;
+            background: rgba(30, 107, 235,1);
+            box-sizing: border-box;
+        }
+        .nav div{
+            height:100%;
+        }
+        .nav div a{
+            color: #fff;
+        }
+        .inner{
+            width: 100%;
+            height: 100%;
+            background: #F3F2F7;
+            margin:0 auto ;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .list3{
+            width: 100%;
+            height:3rem;
+            padding: 0 0.1rem;
+            box-sizing: border-box;
+        }
+        .list3t{
+            width: 100%;
+            height:2.5rem;
+            background: url("img/1100641F46509E6F6536CE0526D04BD9895824-81C8-E18A-F46F-30E6C1068FD2.jpg") no-repeat;
+            background-size: cover;
+        }
+        .list3b{
+            font-size: 0.2rem;
+            line-height: 0.5rem;
+        }
+            .list{
+            width: 3.45rem;
+            height: 2.5rem;
+            background: #fff;
+            /*margin: 0 auto;*/
+            /*box-sizing: border-box;*/
+            margin: 0.1rem 0;
+            /*padding:0.2rem ;*/
+        }
+        .listimg{
+            width: 100%;
+            height: 100%;
+            background: url("img/3265549621414163.jpg") no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .listword{
+            width: 100%;
+            height: 0.4rem;
+            position: absolute;
+            bottom: 0;
+            background: rgba(81, 65, 233, 0.55);
+            /*line-height: 0.4rem;*/
+            text-align: center;
+        }
+        .listword span{
+            font-size: 0.3rem;
+            position: absolute;
+            top:0;
+            bottom:0;
+            right:0;
+            left:0;
+            margin: auto;
+        }
+        .tjgd{
+            width: 100%;
+            height:0.7rem;
+            font-size: 0.3rem;
+            line-height: 0.7rem;
+            box-sizing: border-box;
+            padding-left:0.2rem ;
+        }
+        .tjgd a{
+            float: right;
+            margin-right:0.2rem ;
+            color: #000;
+        }
+
+        .innerxq h2{
+            font-size: 0.5rem;
+
+        }
+        .innerxq spqn{
+            font-size: 0.26rem;
+        }
+        .innerxq p{
+            font-size: 0.36rem;
+            line-height: 0.6rem;
+            text-indent: 2em;
+        }
+        .banner{
+            width: 100%;
+            height: 3.4rem;
+            position: relative;
+        }
+        .banner a{
+            width: 100%;
+            height:100%;
+        }
+        .banner .swiper-container,.banner .swiper-wrapper{
+            width: 100%;
+            height: 100%;
+        }
+        .banner a .swiper-slide:nth-child(1){
+            background: url("img/18737877162208538.jpg") no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .banner a .swiper-slide:nth-child(2){
+            background: url("img/3252355422179887.jpg") no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .banner a .swiper-slide:nth-child(3){
+            background: url("img/18814842976056177.jpg") no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .banner a .swiper-slide:nth-child(4){
+            background: url("img/3265549621414138.jpg") no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .banner a .swiper-slide:nth-child(5){
+            background: url("img/18823639069167415.jpg") no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .banner ul{
+            width: 1.5rem;
+            height:0.2rem;
+            position: absolute;
+            left: 0;
+            right:0;
+            margin: 0 auto;
+            bottom:0.2rem;
+            display: flex;
+            justify-content: space-around;
+            z-index: 2;
+        }
+        .banner ul li{
+            width: 0.2rem;
+            height:100%;
+            background: yellow;
+            border-radius: 50%;
+        }
+
+        .foot{
+            width: 100%;
+            height: 0.9rem;
+            background: #1C88F7;;
+            position: fixed;
+            bottom:0;
+            display: flex;
+            border-top: 1px solid #ccc;
+            justify-content: space-between;
+            text-align: center;
+            z-index: 2;
+        }
+        .footinner{
+            display: flex;
+            width: 95%;
+            height:100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 0.1rem 0;
+        }
+        .footl{
+            width: 60%;
+            height: 100%;
+            display: flex;
+            box-sizing: border-box;
+            padding-left:0.2rem;
+        }
+        .footll{
+            width: 0.7rem;
+            height:0.7rem;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+        .footlr{
+            width: 80%;
+            height:100%;
+            text-align: left;
+            box-sizing: border-box;
+            padding-left: 0.2rem;
+        }
+        .footlr h4{
+            font-size: 0.3rem;
+            color: #fff;
+            line-height: 0.4rem;
+        }
+        .footlr p{
+            font-size: 0.2rem;
+            color: #fff;
+            line-height: 0.4rem;
+        }
+        .footr{
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+
+        }
+        .footr span{
+            display: block;
+            width: 33.333%;
+            font-size: 0.5rem;
+            color: #fff;
+            padding: 0 0.1rem;
+            line-height: 0.9rem;
+        }
+        .footr span:nth-child(2){
+            font-size: 0.6rem;
+        }
+        .liebiao1{
+            width:80%;
+            height:100%;
+            background: #ccc;
+            position: fixed;
+            top:0;
+            left: -80%;
+            z-index: 4;
+            transition:2s ease;
+        }
+        .denglu{
+          position: absolute;
+            left: 0.2rem;
+            top:0;
+            font-size: 0.44rem;
+
+        }
+        .denglu a{
+            color: #fff;
+        }
+        .lbxsbox{
+            width: 100%;
+            height: 0.9rem;
+            background: red;
+            line-height: 0.9rem;
+        }
+        .lbxs{
+            position: absolute;
+           right:0.2rem;
+            font-size:0.44rem;
+            color: #fff;
+            cursor: pointer;
+        }
+        .photo{
+            width: 3rem;
+            height:3rem;
+            margin: 0 auto;
+            /*margin-top: 1.2rem;*/
+            border-radius: 50%;
+            border: 0.1rem solid #fff;
+            text-align: center;
+        }
+        .photo1{
+            width: 100%;
+            height: 1rem;
+            margin-top: 0.4rem;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        .photo2{
+            width: 100%;
+            height:1rem;
+            line-height: 1rem;
+            margin-top: 0.5rem;
+            font-size: 0.36rem;
+            color: #fff;
+        }
+        .sezhi{
+            width: 100%;
+            height:auto;
+            background: rgba(255, 127, 132, 0.25);
+        }
+        .sezhi li{
+            width: 100%;
+            height:0.9rem;
+            color: #000000;
+            font-size: 0.2rem;
+            line-height: 0.9rem;
+        }
+        .mfoot{
+            width: 100%;
+            height:0.9rem;
+            position:absolute;
+            bottom:0;
+            left:0;
+            color: #000000;
+            font-size: 0.34rem;
+            background: #cccccc;
+        }
+        .mfoot div{
+            width: 50%;
+            height: 100%;
+            float: left;
+            line-height: 0.9rem;
+            text-align: center;
+        }
+        .mfoot div a{
+            color: #000000;
+        }
+        .dj{
+            width: 31%;
+            height:3rem;
+            margin-bottom: 0.1rem;
+            background: #fff;
+        }
+        .djt{
+            width: 100%;
+            height:2rem;
+            background: url("img/7957165650297535.jpg") no-repeat;
+            background-size: cover;
+        }
+        .djb{
+            font-size: 0.2rem;
+            line-height: 0.4rem;
+        }
+        .footr .zanting{
+            display: none;
+            font-size: 0.6rem;
+        }
+    </style>
+</head>
+<script>
+    function resize(originSize,type){
+        var type = type||"x";
+        var cw = document.documentElement.clientWidth;
+        var ch = document.documentElement.clientHeight;
+        if(type == "x"){
+            var scale = cw/originSize*100+"px";
+        }else if(type == "y"){
+            var scale = ch/originSize*100+"px";
+        }
+        document.getElementsByTagName("html")[0].style.fontSize = scale;
+    }
+    $(function(){
+        resize(1334,"y");
+        var mySwiper = new Swiper('.swiper-container',{
+            pagination: '.swiper-pagination',
+            onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+                swiperAnimateCache(swiper); //隐藏动画元素
+                swiperAnimate(swiper); //初始化完成开始动画
+            },
+            onSlideChangeEnd: function(swiper){
+                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+            },
+            autoplay : 3000,speed:2000,
+
+        });
+        touch.on(".liebiao","tap",function(){
+            $(".liebiao1").css({
+                transform:"translate(100%)"
+            })
+        })
+        touch.on(".lbxs","tap",function(){
+            $(".liebiao1").css({
+                transform:"translate(-100%)"
+            })
+        })
+        var bofang=document.getElementsByClassName("bofang")[0];
+        var audio=document.getElementsByTagName("audio")[0];
+        var zanting=document.getElementsByClassName("zanting")[0];
+        var sys=document.getElementsByClassName("sys")[0];
+        var xys=document.getElementsByClassName("xys")[0];
+        var aa=document.getElementById("aa");
+        var bb=document.getElementById("bb");
+        var cc=document.getElementById("cc");
+        touch.on(bofang,"tap",function(){
+            aa.play();
+            $(".bofang").css("display","none");
+            $(".zanting").css("display","block")
+        })
+//        touch.on(sys,"tap",function(){
+//            bb.play();
+//            aa.pause();
+//            cc.pause();
+//            $(".bofang").css("display","none");
+//            $(".zanting").css("display","block")
+//        })
+//        touch.on(xys,"tap",function(){
+//            cc.play();
+//            aa.pause();
+//            bb.pause();
+//            alert(1);
+//            $(".bofang").css("display","none");
+//            $(".zanting").css("display","block")
+//        })
+            touch.on(zanting,"tap",function(){
+                aa.pause();
+//            bb.pause();
+//            cc.pause();
+            $(".bofang").css("display","block");
+            $(".zanting").css("display","none")
+        })
+    })
+</script>
+<body>
+<audio id="cc" src="../mp3/林俊杰%20-%20我还想她.mp3"></audio>
+<audio id="bb" src="../mp3/周二珂%20-%20告白气球.mp3"></audio>
+<audio id="aa" src="../mp3/薛之谦%20-%20演员.mp3"></audio>
+<div class="liebiao1">
+    <div class="lbxsbox">
+        <div class="denglu">
+            <a href="denlu.html" class="user"></a>
+        </div>
+        <div class="lbxs">
+
+        </div>
+    </div>
+    <div class="photo">
+        <div class="photo1"></div>
+        <div class="photo2">头像</div>
+    </div>
+    <div class="sezhi">
+        <ul>
+            <li class="">我的消息</li>
+            <li class="">会员中心</li>
+            <li class="">积分商城</li>
+            <li class="">在线听歌免流量</li>
+            <li class="">听歌识曲</li>
+            <li class="">主题换肤</li>
+            <li class="">夜间模式</li>
+            <li class="">定时停止播放</li>
+            <li class="">扫一扫</li>
+            <li class="">我的音乐云盘</li>
+        </ul>
+    </div>
+    <div class="mfoot">
+        <div class="mfootl"><a href="">设置</a></div>
+        <div class="mfootr"><a href="">退出应用</a></div>
+    </div>
+</div>
+<div class="header">
+    <div>
+        <a href="javascript:;" class="liebiao"></a>
+    </div>
+    <div>推荐</div>
+    <div><a href="sousuo.html" class="sear"></a></div>
+</div>
+<div class="nav ">
+    <div><a href="index.html">个性推荐</a></div>
+    <div><a href="gedan.html">歌单</a></div>
+    <div><a href="zbdt.html">主播电台</a></div>
+    <div><a href="paihang.html">排行榜</a></div>
+</div>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="banner">
+                <a href="">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"></div>
+                            <div class="swiper-slide"></div>
+                            <div class="swiper-slide"></div>
+                            <div class="swiper-slide"></div>
+                            <div class="swiper-slide"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="inner">
+                <div class="tjgd">
+                    <div class="tj">
+                        <span>独家放送</span>
+                        <a href="" class="ged">更多</a>
+                    </div>
+                </div>
+                <div class="dj">
+                    <a href="gedan1.html">
+                        <div class="djt"><img src="" alt=""></div>
+                        <div class="djb">旧时回忆，念旧的人获得总像个拾荒者</div>
+                    </a>
+                </div>
+                <div class="dj">
+                    <a href="gedan1.html">
+                        <div class="djt"><img src="" alt=""></div>
+                        <div class="djb">旧时回忆，念旧的人获得总像个拾荒者</div>
+                    </a>
+                </div>
+                <div class="dj">
+                    <a href="gedan1.html">
+                        <div class="djt"><img src="" alt=""></div>
+                        <div class="djb">旧时回忆，念旧的人获得总像个拾荒者</div>
+                    </a>
+                </div>
+                <div class="dj">
+                    <a href="gedan1.html">
+                        <div class="djt"><img src="" alt=""></div>
+                        <div class="djb">旧时回忆，念旧的人获得总像个拾荒者</div>
+                    </a>
+                </div>
+                <div class="dj">
+                    <a href="gedan1.html">
+                        <div class="djt"><img src="" alt=""></div>
+                        <div class="djb">旧时回忆，念旧的人获得总像个拾荒者</div>
+                    </a>
+                </div>
+                <div class="dj">
+                    <a href="gedan1.html">
+                        <div class="djt"><img src="" alt=""></div>
+                        <div class="djb">旧时回忆，念旧的人获得总像个拾荒者</div>
+                    </a>
+                </div>
+                <div class="tjgd">
+                    <div class="tj">
+                        <span>推荐歌单</span>
+                        <a href="" class="ged">更多</a>
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="listimg">
+                        <div class="listword">
+                            <span>我爱你</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="list">
+                    <div class="listimg">
+                        <div class="listword">
+                            <span>我爱你</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="list3">
+                    <div class="list3t"></div>
+                    <div class="list3b">音乐专栏南征北战：不只以音乐“饕餮”沸燃着青春</div>
+                </div>
+                <div class="tjgd">
+                    <div class="tj">
+                        <span>主播电台</span>
+                        <a href="" class="ged">更多</a>
+                    </div>
+                </div>
+                <div class="dj">
+                    <div class="djt"><img src="" alt=""></div>
+                    <div class="djb">反鸡汤让我们负负得正把</div>
+                </div>
+                <div class="dj">
+                    <div class="djt"><img src="" alt=""></div>
+                    <div class="djb">反鸡汤让我们负负得正把</div>
+                </div>
+                <div class="dj">
+                    <div class="djt"><img src="" alt=""></div>
+                    <div class="djb">反鸡汤让我们负负得正把</div>
+                </div>
+                <div class="dj">
+                    <div class="djt"><img src="" alt=""></div>
+                    <div class="djb">反鸡汤让我们负负得正把</div>
+                </div>
+                <div class="dj">
+                    <div class="djt"><img src="" alt=""></div>
+                    <div class="djb">反鸡汤让我们负负得正把</div>
+                </div>
+                <div class="dj">
+                    <div class="djt"><img src="" alt=""></div>
+                    <div class="djb">反鸡汤让我们负负得正把</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="foot">
+    <a class="footinner" href="bofang.html">
+        <div class="footl">
+            <div class="footll"></div>
+            <div class="footlr">
+                <h4>演员</h4>
+                <p>薛之谦</p>
+            </div>
+        </div>
+    </a>
+        <div class="footr">
+            <span class="xys"></span>
+            <span class="bofang"></span>
+            <span class="zanting"></span>
+            <span class="sys"></span>
+        </div>
+
+</div>
+
+</body>
+</html>

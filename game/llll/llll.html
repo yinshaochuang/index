@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/shap.js"></script>
+    <style>
+        canvas{
+            background: #ccc;
+        }
+    </style>
+</head>
+<script>
+    window.onload=function(){
+        var canvas=document.querySelector("canvas");
+        var cobj=canvas.getContext("2d");
+        cobj.fillRect(0,0,100,100);
+        var obj=cobj.getImageData(0,0,100,100);
+        for(var i=0;i<obj.width*obj.height;i++){
+         obj.data[4*i]=Math.random()*255;
+         obj.data[4*i+1]=Math.random()*255;
+         obj.data[4*i+2]=Math.random()*255;
+         obj.data[4*i+3]=Math.random()*255;
+        }
+        cobj.putImageData(obj,100,100)
+
+    }
+</script>
+<body>
+<canvas width="500" height="500"></canvas>
+</body>
+</html>
