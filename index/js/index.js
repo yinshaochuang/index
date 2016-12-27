@@ -7,6 +7,15 @@ $(function(){
         //$('video').height($(this).height()+'px');
     })
 
+    $(".weiboa").mouseover(function(){
+        $(".weiboa>div>img").css({
+            display:"block"
+        })
+    }).mouseout(function(){
+        $(".weiboa>div>img").css({
+            display:"none"
+        })
+    })
 
 
     $('.caidan').click(function(){

@@ -151,7 +151,15 @@ ul{
     -moz-transition:all 0.5s linear 0s;
     -ms-transition:all 0.5s linear 0s;
 }
+.lianxi .weiboa div img{
+    position: absolute;
+    left: -80px;
+    top:40px;
+    width: 200px;
+    display: none;
+}
 .lianxi .weiboa{
+    position: relative;
     background-position:0 0;
     border:2px #3071a9 solid;
 
