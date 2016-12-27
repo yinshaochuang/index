@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'iconfont';  /* project id 194599 */
+    src: url('iconfont.eot');
+    src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+    url('iconfont.woff') format('woff'),
+    url('iconfont.ttf') format('truetype'),
+    url('iconfont.svg#iconfont') format('svg');
+}
+
+.glyphicon-list:before{
+    font-family: "iconfont";
+    content: "\e62d";
+}
